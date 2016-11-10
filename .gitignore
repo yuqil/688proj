@@ -30,3 +30,5 @@
 
 # Python
 *.pyc
+
+.idea/
