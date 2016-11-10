@@ -163,9 +163,18 @@ class BuildAuthorCitationGraph(YearFilterableTask):
         """Read author ids from author file and return as strings (for easy
         reference when adding edges).
         """
+        map_df = pd.read_csv('./base-dir/data/person')
+        id_name_map = dict()
+        for index, row in map_df.iterrow():
+            id_name_map[map_df['id']] = map_df['name']
+        res = list()
         with self.author_file.open() as f:
             df = pd.read_csv(f, header=0, usecols=(0,))
-            return df['author_id'].astype(str).values
+            id_list = df['author_id'].tolist()
+            for nid in id_list:
+                res.append(id_name_map[nid])
+            return pd.DataFrame(id_list).astype(str).values
+
 
     def get_edges(self):
         """Return all edges from a file in which each line contains an (author,
