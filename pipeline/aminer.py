@@ -155,15 +155,40 @@ class ParsePapersToCSV(luigi.Task):
         abstract = match(line, abstract_pattern)
         if line.strip(): f.readline()  # consume blank line
 
-        return Paper(
-            id=paperid,
-            title=title,
-            authors=authors,
-            year=year,
-            venue=venue,
-            refs=refs,
-            abstract=abstract
-        )
+        content = title
+        if venue is not None:
+            content += (" " + venue)
+        if abstract is not None:
+            content += (" " + abstract)
+        content = content.lower()
+
+        keywords = ["machine learning", "data mining", "data analysis", "deep learning", "pattern recognition",
+                    "reinforcement learning",  "unsupervised learning", "supervised learning", "computer vision",
+                    "semi-supervised learning", "knowledge discovery", "big data", "data analytic",
+                    "graphical models", "bayesian learning"]
+
+        for keyword in keywords:
+            if keyword in content:
+                return Paper(
+                    id=paperid,
+                    title=title,
+                    authors=authors,
+                    year=year,
+                    venue=venue,
+                    refs=refs,
+                    abstract=abstract
+                )
+        return "except"
+
+        # return Paper(
+        #     id=paperid,
+        #     title=title,
+        #     authors=authors,
+        #     year=year,
+        #     venue=venue,
+        #     refs=refs,
+        #     abstract=abstract
+        # )
 
 
     def iterpapers(self):
@@ -171,7 +196,8 @@ class ParsePapersToCSV(luigi.Task):
         with self.input().open() as f:
             record = self.nextrecord(f)
             while record is not None:
-                yield record
+                if record is not "except":
+                    yield record
                 record = self.nextrecord(f)
 
 
