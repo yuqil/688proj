@@ -31,4 +31,8 @@
 # Python
 *.pyc
 
+# Dataset
+*.xml
+
 .idea/
+.DS_Store
