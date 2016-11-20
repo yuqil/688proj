@@ -99,6 +99,11 @@ module performs the following conversions:
 These six CSV files contain all the information used by subsequent processing
 modules; the four original files from the Aminer dataset are not used again.
 
+To generate the above csv files, run:
+`python aminer.py ParseAminerNetworkDataToCSV --local-scheduler`
+
+This should be done before running pipeline.py
+
 ## Module 2: Filtering
 
 Module: `filtering`
