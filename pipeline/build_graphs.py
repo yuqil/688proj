@@ -1,5 +1,5 @@
 import csv
-
+import os
 import pandas as pd
 import igraph
 import luigi
@@ -139,6 +139,7 @@ class BuildAuthorCitationGraph(YearFilterableTask):
 
     def requires(self):
         return (filtering.FilterAuthorshipsToYearRange(self.start, self.end),
+                filtering.FilterAuthorNamesToYearRange(self.start, self.end),
                 PaperCitationGraphIdmap(self.start, self.end),
                 PickledPaperCitationGraph(self.start, self.end))
 
@@ -163,10 +164,11 @@ class BuildAuthorCitationGraph(YearFilterableTask):
         """Read author ids from author file and return as strings (for easy
         reference when adding edges).
         """
-        map_df = pd.read_csv('./base-dir/data/person')
+        # map_df = pd.read_csv('./base-dir/data/person')
+        map_df = pd.read_csv(os.path.join(config.base_csv_dir, 'person.csv'))
         id_name_map = dict()
-        for index, row in map_df.iterrow():
-            id_name_map[map_df['id']] = map_df['name']
+        for index, row in map_df.iterrows():
+            id_name_map[row['id']] = row['name']
         res = list()
         with self.author_file.open() as f:
             df = pd.read_csv(f, header=0, usecols=(0,))
@@ -203,6 +205,7 @@ class BuildAuthorCitationGraph(YearFilterableTask):
     def run(self):
         nodes = self.read_author_ids()
         edges = self.get_edges()
+        print len(nodes), len(edges)
         authorg = util.build_undirected_graph(nodes, edges)
 
         # Now write the graph to gzipped graphml file.

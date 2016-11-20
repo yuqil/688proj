@@ -8,6 +8,7 @@ import luigi
 
 import config
 import repdocs
+import aminer
 
 
 class BuildDataset(luigi.Task):
@@ -20,6 +21,7 @@ class BuildDataset(luigi.Task):
     end = luigi.IntParameter(default=None)
 
     def requires(self):
+        yield aminer.ParseAminerNetworkDataToCSV()
         yield repdocs.BuildLCCAuthorRepdocCorpusTfidf(self.start, self.end)
 
 
