@@ -37,7 +37,7 @@ for paper, authors in coaurhors.iteritems():
         for j in range(i + 1, len(authors)):
             firstauthor = node_map[authors[i]]
             secondauthor = node_map[authors[j]]
-            edge_list.write(firstauthor + "," + secondauthor + "\n")
+            edge_list.write(firstauthor + " " + secondauthor + "\n")
 edge_list.close()
 
 for author, key in node_map.iteritems():
