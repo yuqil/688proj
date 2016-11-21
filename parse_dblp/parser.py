@@ -81,10 +81,11 @@ class DBLPContentHandler(xml.sax.ContentHandler):
                 keywords = ["machine learning", "data mining", "data analysis", "deep learning", "pattern recognition",
                             "reinforcement learning", "unsupervised learning", "supervised learning", "computer vision",
                             "semi-supervised learning", "knowledge discovery", "big data", "data analytic",
-                            "graphical models", "bayesian learning"]
+                            "graphical models", "bayesian learning", "kdd", "cvpr", "icml", "mldm", "aaal", "icml", "ijcai",
+                            "nips", "eccv", "bmvc", "sigkdd", "sigir"]
 
                 for keyword in keywords:
-                    if keyword in self.paper.title or keyword in self.paper.conference:
+                    if keyword in self.paper.title.lower() or keyword in self.paper.conference.lower():
                         self.write_paper(self.paper)
                         for t in self.paper.authors:
                             self.write_author(t, self.paper)
@@ -92,7 +93,7 @@ class DBLPContentHandler(xml.sax.ContentHandler):
                             if c != "...":
                                 self.write_citation(c, self.paper)
                         return
-                    
+
             except ValueError:
                 print "error"
 
