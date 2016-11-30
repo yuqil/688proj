@@ -1,6 +1,7 @@
-f1 = open("final.graphml")
+f1 = open("lcc-author-citation-graph-2010-2016_with_name.graphml")
 f2 = open("new_person.txt", "w")
 f3 = open("new_edge.txt", "w")
+
 past_line = ''
 for line in f1:
     if '<data key="v_name">' in line:
@@ -13,4 +14,4 @@ for line in f1:
         f3.write(id1 + ' ' + id2 + '\n')
     past_line = line
 
-print 'finish'
+print 'finish get_new_graph_node_and_edge'
