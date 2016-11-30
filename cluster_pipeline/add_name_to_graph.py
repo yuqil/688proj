@@ -12,10 +12,8 @@ for line in f1:
     name = name.replace('#', '')
     dic[id] = name
 
-print 'finish 50%'
-
 f2 = open("lcc-author-citation-graph-2010-2016.graphml")
-f3 = open("final.graphml", "w")
+f3 = open("lcc-author-citation-graph-2010-2016_with_name.graphml", "w")
 for line in f2:
     if '<data key="v_name">' in line:
         id = line.split('>')[1].split('<')[0]
@@ -23,4 +21,4 @@ for line in f2:
         line = line.replace(id, dic[id])
     f3.write(line)
 
-print 'finish 100%'
+print 'finish add_name_to_graph'
