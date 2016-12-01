@@ -11,9 +11,11 @@ def task(id, startnumber, pub_file, out_file):
     for i in xrange(0, startnumber):
         line = fin.readline()
 
-    for i in xrange(0, 10000):
+    for i in xrange(0, 1000):
         line = fin.readline()
         parts = line.strip().split('\t')
+        if len(parts) < 4:
+            continue
         out_list = list()
         title = parts[0]
         year = parts[1]
@@ -45,9 +47,10 @@ def get_url_from_title(title):
                 continue
             retval = pub_url
             break
-        except StopIteration:
+        except (StopIteration, KeyError):
             break
 
+    time.sleep(5)
     return retval
 
 
@@ -78,9 +81,9 @@ def get_all_urls(pub_file, out_file):
 print "multiple process start"
 jobs = []
 startnum = 0
-inputpath = "/Users/yuqil/Desktop/16fall/15688/final project/code/688proj/parse_dblp/inproc.txt"
-for i in xrange(0, 20):
+inputpath = "/Users/ynwang/Projects/688-team/688proj/keywords/inproc.txt"
+for i in xrange(0, 80):
     p = multiprocessing.Process(target=task, args=(i, startnum, inputpath, str(i) + ".txt"))
-    startnum += 10000
+    startnum += 1000
     jobs.append(p)
     p.start()
