@@ -4,6 +4,7 @@ import time
 import scholarly
 
 def task(id, startnumber, pub_file, out_file):
+    time.sleep(id)
     print id, " start!"
     fin = open(pub_file, "r")
     fout = open(out_file, "w")
@@ -11,7 +12,7 @@ def task(id, startnumber, pub_file, out_file):
     for i in xrange(0, startnumber):
         line = fin.readline()
 
-    for i in xrange(0, 1000):
+    for i in xrange(0, 4000):
         line = fin.readline()
         parts = line.strip().split('\t')
         if len(parts) < 4:
@@ -82,8 +83,8 @@ print "multiple process start"
 jobs = []
 startnum = 0
 inputpath = "/Users/ynwang/Projects/688-team/688proj/keywords/inproc.txt"
-for i in xrange(0, 80):
+for i in xrange(0, 20):
     p = multiprocessing.Process(target=task, args=(i, startnum, inputpath, str(i) + ".txt"))
-    startnum += 1000
+    startnum += 4000
     jobs.append(p)
     p.start()
