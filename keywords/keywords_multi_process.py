@@ -3,6 +3,7 @@ import threading
 import time
 import scholarly
 
+
 def task(id, startnumber, pub_file, out_file):
     time.sleep(id)
     print id, " start!"
@@ -82,7 +83,7 @@ def get_all_urls(pub_file, out_file):
 print "multiple process start"
 jobs = []
 startnum = 0
-inputpath = "/Users/ynwang/Projects/688-team/688proj/keywords/inproc.txt"
+inputpath = "/Users/yuqil/Desktop/16fall/15688/final project/code/688proj/keywords/inproc.txt"
 for i in xrange(0, 20):
     p = multiprocessing.Process(target=task, args=(i, startnum, inputpath, str(i) + ".txt"))
     startnum += 4000
