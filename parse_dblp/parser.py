@@ -84,7 +84,9 @@ class DBLPContentHandler(xml.sax.ContentHandler):
                 #             "graphical models", "bayesian learning", "kdd", "cvpr", "icml", "mldm", "aaal", "icml", "ijcai",
                 #             "nips", "eccv", "bmvc", "sigkdd", "sigir"]
 
-                keywords = ['AAAI', 'CVPR', 'ICCV', 'ECCV', 'ICML', 'IJCAI', 'NIPS', 'ACL', 'COLT', 'EMNLP', 'ECAI', 'ICRA', 'ICAPS', 'ICCBR', 'COLING', 'KR', 'UAI', 'AAMAS', 'PPSN', 'ACCV', 'CoNLL', 'ICPR', 'BMVC', 'IROS', 'ACML', 'SIGMOD Conference', 'SIGMOD', 'KDD', 'SIGKDD', 'SIGIR', 'VLDB', 'ICDE', 'CIKM', 'PODS', 'PKDD', 'ECML/PKDD', 'ICDM', 'SDM']
+                # keywords = ['AAAI', 'CVPR', 'ICCV', 'ECCV', 'ICML', 'IJCAI', 'NIPS', 'ACL', 'COLT', 'EMNLP', 'ECAI', 'ICRA', 'ICAPS', 'ICCBR', 'COLING', 'KR', 'UAI', 'AAMAS', 'PPSN', 'ACCV', 'CoNLL', 'ICPR', 'BMVC', 'IROS', 'ACML', 'SIGMOD Conference', 'SIGMOD', 'KDD', 'SIGKDD', 'SIGIR', 'VLDB', 'ICDE', 'CIKM', 'PODS', 'PKDD', 'ECML/PKDD', 'ICDM', 'SDM']
+
+                keywords = ['AAAI', 'CVPR', 'ICCV', 'ECCV', 'ICML', 'IJCAI', 'NIPS', 'ACL', 'COLT', 'EMNLP', 'ECAI', 'ICRA', 'ICCBR', 'COLING', 'KR', 'UAI', 'PPSN', 'ACCV', 'CoNLL', 'ICPR', 'BMVC', 'IROS', 'ACML', 'SIGMOD Conference', 'SIGMOD', 'KDD', 'SIGKDD', 'SIGIR', 'VLDB', 'ICDE', 'CIKM', 'PODS', 'PKDD', 'ECML/PKDD', 'ICDM', 'SDM', 'ICDT', 'CIDR', 'WSDM', 'ECIR', 'PAKDD']
                 for keyword in keywords:
                     # if keyword in self.paper.title.lower() or keyword in self.paper.conference.lower():
                     if keyword.lower() in self.paper.conference.lower().split(" "):

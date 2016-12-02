@@ -40,13 +40,14 @@ sort_word = sorted(dict.items(), key=operator.itemgetter(1), reverse=True)
 topwords = sort_word[0:50]
 print topwords
 
-x = year_map['computer vision']
+x = year_map['machine learning']
 # the histogram of the data
 n, bins, patches = plt.hist(x, 30, normed=1, facecolor='blue', alpha=0.75)
 
 # add a 'best fit' line
 plt.grid(True)
 plt.title("computer vision titled paper year distribution")
+plt.show()
 # plt.show()
 
 output = open("2gram.txt", "wb")
