@@ -1,0 +1,62 @@
+journals/tcci/2015-18	Transactions on Computational Collective Intelligence XVIII	Transactions on Computational Collective Intelligence XVIII
+conf/forte/2001	Formal Techniques for Networked and Distributed Systems, FORTE 2001, IFIP TC6/WG6.1 - 21	Formal Techniques for Networked and Distributed Systems, FORTE 2001, IFIP TC6/WG6.1 - 21
+conf/recsys/2011divers	Proceedings of the Workshop on Novelty and Diversity in Recommender Systems, DiveRS 2011, at the 5	Proceedings of the Workshop on Novelty and Diversity in Recommender Systems, DiveRS 2011, at the 5
+conf/zeus/2012	Proceedings of the 4	Proceedings of the 4
+conf/zeus/2013	Proceedings of the 5	Proceedings of the 5
+conf/birthday/1992ginsburg	Theoretical Studies in Computer Science, to Seymour Ginsburg on the occasion of his 2	Theoretical Studies in Computer Science, to Seymour Ginsburg on the occasion of his 2
+conf/tex/1986	T	T
+conf/e2dc/2013	Energy-Efficient Data Centers - Second International Workshop, E	Energy-Efficient Data Centers - Second International Workshop, E
+conf/e2dc/2014	Energy Efficient Data Centers - Third International Workshop, E	Energy Efficient Data Centers - Third International Workshop, E
+conf/sc/2013ia3	Proceedings of the 3rd Workshop on Irregular Applications - Architectures and Algorithms, IA	Proceedings of the 3rd Workshop on Irregular Applications - Architectures and Algorithms, IA
+conf/istar/2011	Proceedings of the 5	Proceedings of the 5
+conf/istar/2013	Proceedings of the 6th International 	Proceedings of the 6th International 
+conf/istar/2010	Proceedings of the 4	Proceedings of the 4
+conf/c5/2009	The Seventh International Conference on Creating, Connecting and Collaborating through Computing, C	The Seventh International Conference on Creating, Connecting and Collaborating through Computing, C
+conf/c5/2003	2003 Conference on Creating, Connecting and Collaborating through Computing (C	2003 Conference on Creating, Connecting and Collaborating through Computing (C
+conf/c5/2012	10th International Conference on Creating, Connecting and Collaborating through Computing, C	10th International Conference on Creating, Connecting and Collaborating through Computing, C
+conf/c5/2011	Ninth International Conference on Creating, Connecting and Collaborating through Computing, C	Ninth International Conference on Creating, Connecting and Collaborating through Computing, C
+conf/c5/2008	Sixth International Conference on Creating, Connecting and Collaborating through Computing (C	Sixth International Conference on Creating, Connecting and Collaborating through Computing (C
+conf/c5/2005	3rd Conference on Creating, Connecting and Collaborating through Computing (C	3rd Conference on Creating, Connecting and Collaborating through Computing (C
+conf/c5/2006	Fourth International Conference on Creating, Connecting and Collaborating through Computing (C	Fourth International Conference on Creating, Connecting and Collaborating through Computing (C
+conf/c5/2007	Fifth International Conference on Creating, Connecting and Collaborating through Computing (C	Fifth International Conference on Creating, Connecting and Collaborating through Computing (C
+conf/c5/2010	The Eighth International Conference on Creating, Connecting and Collaborating through Computing, C	The Eighth International Conference on Creating, Connecting and Collaborating through Computing, C
+conf/c5/2004	2004 Conference on Creating, Connecting and Collaborating through Computing (C	2004 Conference on Creating, Connecting and Collaborating through Computing (C
+conf/ecmr/2011	Proceedings of the 5	Proceedings of the 5
+conf/esscirc/2016	ESSCIRC Conference 2016: 42	ESSCIRC Conference 2016: 42
+conf/esscirc/2015	ESSCIRC Conference 2015 - 41	ESSCIRC Conference 2015 - 41
+conf/hcc/2002	Human Choice and Computers: Issues of Choice and Quality of Life in the Information Society, IFIP 17	Human Choice and Computers: Issues of Choice and Quality of Life in the Information Society, IFIP 17
+conf/wicsa/2002	Software Architecture: System Design, Development and Maintenance, IFIP 17	Software Architecture: System Design, Development and Maintenance, IFIP 17
+conf/tacas/2013	Tools and Algorithms for the Construction and Analysis of Systems - 19th International Conference, TACAS 2013, Held as Part of the European Joint Conferences on Theory and Practice of Software, ETAPS 2013, Rome, Italy, March 16-24, 2013. Proceedings	Tools and Algorithms for the Construction and Analysis of Systems - 19th International Conference, TACAS 2013, Held as Part of the European Joint Conferences on Theory and Practice of Software, ETAPS 2013, Rome, Italy, March 16-24, 2013. Proceedings
+conf/ifip8/2002	Information Systems: The e-Business Challenge, IFIP 17	Information Systems: The e-Business Challenge, IFIP 17
+conf/icwe/2004w	                 	                 
+conf/ifip5-3/1998basys	Intelligent Systems for Manufacturing: Multi-Agent Systems and Virtual Organizations, Proceedings of the BASYS - 3	Intelligent Systems for Manufacturing: Multi-Agent Systems and Virtual Organizations, Proceedings of the BASYS - 3
+conf/pts/1999	Testing of Communicating Systems: Method and Applications, IFIP TC6 12	Testing of Communicating Systems: Method and Applications, IFIP TC6 12
+conf/pts/2000	Testing of Communicating Systems: Tools and Techniques, IFIP TC6/WG6.1 13	Testing of Communicating Systems: Tools and Techniques, IFIP TC6/WG6.1 13
+conf/ifip10-3/2002dipes	Design and Analysis of Distributed Embedded Systems, IFIP 17	Design and Analysis of Distributed Embedded Systems, IFIP 17
+conf/semweb/2007smrr	Proceedings of the SMR	Proceedings of the SMR
+conf/ifip13/2002	Usability: Gaining a Competitive Edge, IFIP 17	Usability: Gaining a Competitive Edge, IFIP 17
+conf/ifip11/2002	Certification and Security in E-Services, From E-Govenment to E-Business, IFIP 17	Certification and Security in E-Services, From E-Govenment to E-Business, IFIP 17
+conf/cide/2006	CIDE.9: 9	CIDE.9: 9
+conf/iics/2009	9th International Conference on Innovative Coummunity Systems, I	9th International Conference on Innovative Coummunity Systems, I
+conf/iics/2012	12th International Conference on Innovative Internet Community Systems (I	12th International Conference on Innovative Internet Community Systems (I
+conf/iics/2011	11th International Conference on Innovative Internet Community Services (I	11th International Conference on Innovative Internet Community Services (I
+conf/iics/2010	10th International Conference on Innovative Internet Community Services (I	10th International Conference on Innovative Internet Community Services (I
+conf/arcsf/2008	                                        	                                        
+conf/ifip12/2002	Intelligent Information Processing, IFIP 17	Intelligent Information Processing, IFIP 17
+conf/ifip/2002cs	Communication Systems: The State of the Art, IFIP 17	Communication Systems: The State of the Art, IFIP 17
+conf/ifipTCS/2002	Foundations of Information Technology in the Era of Networking and Mobile Computing, IFIP 17	Foundations of Information Technology in the Era of Networking and Mobile Computing, IFIP 17
+conf/bda/1986	2	2
+conf/ifip3/2002	TelE-Learning: the Challenge for the Third Millennium, IFIP 17	TelE-Learning: the Challenge for the Third Millennium, IFIP 17
+conf/prolamat/1998	Globalization of Manufacturing in the Digital Communications Era of the 21	Globalization of Manufacturing in the Digital Communications Era of the 21
+conf/sec/2003	Security and Privacy in the Age of Uncertainty, IFIP TC11 18	Security and Privacy in the Age of Uncertainty, IFIP TC11 18
+conf/sec/2002	Security in the Information Society: Visions and Perspectives, IFIP TC11 17	Security in the Information Society: Visions and Perspectives, IFIP TC11 17
+conf/jfplc/1988	SPLT'88, 7	SPLT'88, 7
+conf/jfplc/1989	SPLT'89, 8	SPLT'89, 8
+conf/jfplc/1990	SPLT'90, 8	SPLT'90, 8
+conf/jfplc/1992	JFPL'92, 1	JFPL'92, 1
+conf/caise/2012fo	Proceedings of the CAiSE'12 Forum at the 24	Proceedings of the CAiSE'12 Forum at the 24
+conf/aaim/2013	Frontiers in Algorithmics 	Frontiers in Algorithmics 
+conf/i3/2007	Proceedings of the WWW2007 Workshop I	Proceedings of the WWW2007 Workshop I
+conf/esm/1998	12	12
+conf/esm/2002	16	16
+conf/esm/2000	14	14

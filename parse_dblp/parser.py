@@ -78,14 +78,16 @@ class DBLPContentHandler(xml.sax.ContentHandler):
                     self.errors += 1
                     return
 
-                keywords = ["machine learning", "data mining", "data analysis", "deep learning", "pattern recognition",
-                            "reinforcement learning", "unsupervised learning", "supervised learning", "computer vision",
-                            "semi-supervised learning", "knowledge discovery", "big data", "data analytic",
-                            "graphical models", "bayesian learning", "kdd", "cvpr", "icml", "mldm", "aaal", "icml", "ijcai",
-                            "nips", "eccv", "bmvc", "sigkdd", "sigir"]
+                # keywords = ["machine learning", "data mining", "data analysis", "deep learning", "pattern recognition",
+                #             "reinforcement learning", "unsupervised learning", "supervised learning", "computer vision",
+                #             "semi-supervised learning", "knowledge discovery", "big data", "data analytic",
+                #             "graphical models", "bayesian learning", "kdd", "cvpr", "icml", "mldm", "aaal", "icml", "ijcai",
+                #             "nips", "eccv", "bmvc", "sigkdd", "sigir"]
 
+                keywords = ['AAAI', 'CVPR', 'ICCV', 'ECCV', 'ICML', 'IJCAI', 'NIPS', 'ACL', 'COLT', 'EMNLP', 'ECAI', 'ICRA', 'ICAPS', 'ICCBR', 'COLING', 'KR', 'UAI', 'AAMAS', 'PPSN', 'ACCV', 'CoNLL', 'ICPR', 'BMVC', 'IROS', 'ACML', 'SIGMOD Conference', 'SIGMOD', 'KDD', 'SIGKDD', 'SIGIR', 'VLDB', 'ICDE', 'CIKM', 'PODS', 'PKDD', 'ECML/PKDD', 'ICDM', 'SDM']
                 for keyword in keywords:
-                    if keyword in self.paper.title.lower() or keyword in self.paper.conference.lower():
+                    # if keyword in self.paper.title.lower() or keyword in self.paper.conference.lower():
+                    if keyword.lower() in self.paper.conference.lower().split(" "):
                         self.write_paper(self.paper)
                         for t in self.paper.authors:
                             self.write_author(t, self.paper)
