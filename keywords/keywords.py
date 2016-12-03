@@ -14,7 +14,7 @@ def get_springer_keywords(url):
 
 def get_url_from_title(title):
     pub_query = scholarly.search_pubs_query(title)
-    retval = None
+    retval = ''
 
     while True:
         try:
@@ -25,7 +25,7 @@ def get_url_from_title(title):
                 continue
             retval = pub_url
             break
-        except StopIteration:
+        except:
             break
 
     return retval
@@ -37,7 +37,7 @@ print get_url_from_title(title)
 def get_all_urls(pub_file, out_file):
     fin = open(pub_file, "r")
     fout = open(out_file, "w")
-
+    cnt = 0
     for line in fin:
         parts = line.strip().split('\t')
         out_list = list()
@@ -48,7 +48,8 @@ def get_all_urls(pub_file, out_file):
         out_list.append(year) # year
 
         fout.write('\t'.join(out_list) + '\n')
-        print out_list
+        print cnt, out_list
+        cnt += 1
 
     fin.close()
     fout.close()
