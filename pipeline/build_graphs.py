@@ -205,7 +205,6 @@ class BuildAuthorCitationGraph(YearFilterableTask):
     def run(self):
         nodes = self.read_author_ids()
         edges = self.get_edges()
-        print len(nodes), len(edges)
         authorg = util.build_undirected_graph(nodes, edges)
 
         # Now write the graph to gzipped graphml file.

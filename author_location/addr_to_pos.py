@@ -4,7 +4,7 @@ file = open("author_address.txt")
 output = open("author_latlng_yuqi2.txt", "wb")
 
 print "start"
-startline = 14616 + 2500
+startline = 14616 + 2500 + 2500
 i = 0
 
 for line in file:
