@@ -84,9 +84,9 @@ for timing in xrange(2015,2016):
                 year_map[phrase] = []
             year_map[phrase].append(year)
 sort_word = sorted(dict.items(), key=operator.itemgetter(1), reverse=True)
-topwords = sort_word[0:50]
+topwords1 = sort_word[0:50]
 file.close()
-print topwords
+print topwords1
 
 print "\n"
 print "2000 topwords"
@@ -113,8 +113,8 @@ for timing in xrange(2000,2001):
                 year_map[phrase] = []
             year_map[phrase].append(year)
 sort_word = sorted(dict.items(), key=operator.itemgetter(1), reverse=True)
-topwords = sort_word[0:50]
-print topwords
+topwords2 = sort_word[0:50]
+print topwords2
 file.close()
 print "\n"
 
@@ -144,5 +144,32 @@ for timing in xrange(1985,1986):
             year_map[phrase].append(year)
 file.close()
 sort_word = sorted(dict.items(), key=operator.itemgetter(1), reverse=True)
-topwords = sort_word[0:50]
-print topwords
+topwords3 = sort_word[0:50]
+print topwords3
+
+def convert(k):
+    words = k.split(" ")
+    newword = words[0].title() + words[1].title() + '\n'
+    return newword
+
+output1 = open("title2015.txt", "wb")
+output2 = open("title2000.txt", "wb")
+output3 = open("title1985", "wb")
+
+for k, v in topwords1:
+    for i in range(0, v):
+        output1.write(convert(k))
+
+for k, v in topwords2:
+    for i in range(0, v):
+        output2.write(convert(k))
+
+for k, v in topwords3:
+    for i in range(0, v):
+        output3.write(convert(k))
+
+
+output1.close()
+output2.close()
+output3.close()
+file.close()
