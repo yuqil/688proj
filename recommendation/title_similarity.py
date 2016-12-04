@@ -116,3 +116,5 @@ def test():
     for idx in idx_list:
         # title_list.append(title_dict[idx])
         print idx_list[idx], paper_dict[idx]
+
+test()
