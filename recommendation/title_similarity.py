@@ -101,7 +101,10 @@ def load_paper_dict():
         paper_dict = dict()
         paper_df = pd.read_csv(os.path.join(config.base_csv_dir, 'paper.csv'))
         for _, row in paper_df.iterrows():
-            paper_dict[int(row['id'])] = row['title']
+            pid = int(row['id'])
+            paper_dict[pid] = dict()
+            paper_dict[pid]['title'] = row['title']
+            paper_dict[pid]['abstract'] = row['abstract']
         save_obj(paper_dict, 'paper_dict')
     return load_obj('paper_dict')
 
