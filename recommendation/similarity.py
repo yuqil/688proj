@@ -1,11 +1,14 @@
 import string
 from nltk.corpus import stopwords
+import config
+import os
 
 
 class abstract_similarity:
     lam = 0.1
     mu = 0.1
-    def __init__(self, path = "/Users/yuqil/Desktop/16fall/15688/final project/code/688proj/base_dir/backup2/filtered-csv/paper-2010-2016.csv"):
+
+    def __init__(self, path=os.path.join(config.filtered_dir, 'paper-2010-2016.csv')):
         file = open(path)
         stop = set(stopwords.words('english'))
         stop.add("using")
