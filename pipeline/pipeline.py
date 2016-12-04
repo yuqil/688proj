@@ -21,7 +21,6 @@ class BuildDataset(luigi.Task):
     end = luigi.IntParameter(default=None)
 
     def requires(self):
-        yield aminer.ParseAminerNetworkDataToCSV()
         yield repdocs.BuildLCCAuthorRepdocCorpusTfidf(self.start, self.end)
 
 
