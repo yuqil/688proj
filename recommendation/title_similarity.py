@@ -60,7 +60,11 @@ def bigram_search(bigram_dict, title):
         if bi in bigram_dict:
             bi_list += list(bigram_dict[bi])
     bi_cnt = Counter(bi_list)
-    return [w for w in bi_cnt if bi_cnt[w] >= 2]
+    retval = dict()
+    for w in bi_cnt:
+        if bi_cnt[w] >= 2:
+            retval[w] = bi_cnt[w]
+    return retval
 
 
 def build_bigram_index():
@@ -84,26 +88,30 @@ def load_obj(name):
     with open(name + '.pkl', 'rb') as f:
         return pickle.load(f)
 
-def test():
-    paper_df = pd.read_csv(os.path.join(config.base_csv_dir, 'paper.csv'))
-    title_dict = dict()
-    for index, row in paper_df.iterrows():
-        title_dict[int(row['id'])] = row['title']
-    bigram_dict = load_obj('bigram_idx')
 
+def load_bigram_dict():
+    if not os.path.exists('./bigram_idx.pkl'):
+        build_bigram_index()
+    return load_obj('bigram_idx')
+
+
+def load_paper_dict():
+    if not os.path.exists('./paper_dict.pkl'):
+        paper_dict = dict()
+        paper_df = pd.read_csv(os.path.join(config.base_csv_dir, 'paper.csv'))
+        for _, row in paper_df.iterrows():
+            paper_dict[int(row['id'])] = row['title']
+        save_obj(paper_dict, 'paper_dict')
+    return load_obj('paper_dict')
+
+
+def test():
+    bigram_dict = load_bigram_dict()
+    print 'bigram load done'
+    paper_dict = load_paper_dict()
+    print 'paper load done'
     idx_list = bigram_search(bigram_dict, 'Novel approach on object recognition based on convolutional neural network')
-    # title_list = list()
 
     for idx in idx_list:
         # title_list.append(title_dict[idx])
-        print title_dict[idx]
-
-
-
-
-# bigram_dict = build_bigram_index()
-# save_obj(bigram_dict, 'bigram_idx')
-# print bigram_search(bigram_dict, 'Novel approach on object recognition based on convolutional neural network')
-#
-
-test()
+        print idx_list[idx], paper_dict[idx]

@@ -26,6 +26,14 @@ def build_ref_dict():
     save_obj(ref_dict, 'ref_idx')
 
 
+def load_ref_dict():
+    if not os.path.exists('ref_idx.pkl'):
+        build_ref_dict()
+
+    return load_obj('ref_idx')
+
+
+
 def graph_count(ref_idx, paper_id, niter=3):
     vertices = list()
     queue = Queue()
@@ -43,8 +51,6 @@ def graph_count(ref_idx, paper_id, niter=3):
                 continue
 
     return Counter(vertices)
-
-# build_ref_dict()
 
 def test():
     ref_idx = load_obj('ref_idx')
