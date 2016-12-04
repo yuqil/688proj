@@ -64,6 +64,11 @@ def bigram_search(bigram_dict, title):
     for w in bi_cnt:
         if bi_cnt[w] >= 2:
             retval[w] = bi_cnt[w]
+
+    # normalization
+    max_val = max(retval.values())
+    for w in retval:
+        retval[w] = float(retval[w]) / max_val
     return retval
 
 

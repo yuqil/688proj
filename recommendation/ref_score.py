@@ -54,6 +54,11 @@ def graph_count(ref_idx, paper_id, niter=3):
     vertices_cnt = Counter(vertices)
     for pid in vertices_cnt:
         retval[pid] = vertices_cnt[pid]
+
+    # normalization
+    max_val = max(retval.values())
+    for w in retval:
+        retval[w] = float(retval[w]) / max_val
     return retval
 
 
