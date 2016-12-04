@@ -76,7 +76,8 @@ def build_bigram_index():
     print type(title_dict)
     print title_dict.keys()[0], title_dict[title_dict.keys()[0]]
 
-    return bigram_index(title_dict)
+    bigram_dict = bigram_index(title_dict)
+    save_obj(bigram_dict, 'bigram_idx')
 
 
 def save_obj(obj, name):
