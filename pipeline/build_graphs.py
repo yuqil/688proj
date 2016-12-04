@@ -139,7 +139,6 @@ class BuildAuthorCitationGraph(YearFilterableTask):
 
     def requires(self):
         return (filtering.FilterAuthorshipsToYearRange(self.start, self.end),
-                filtering.FilterAuthorNamesToYearRange(self.start, self.end),
                 PaperCitationGraphIdmap(self.start, self.end),
                 PickledPaperCitationGraph(self.start, self.end))
 
@@ -172,10 +171,7 @@ class BuildAuthorCitationGraph(YearFilterableTask):
         res = list()
         with self.author_file.open() as f:
             df = pd.read_csv(f, header=0, usecols=(0,))
-            id_list = df['author_id'].tolist()
-            for nid in id_list:
-                res.append(id_name_map[nid])
-            return pd.DataFrame(id_list).astype(str).values
+            return df['author_id'].astype(str).values
 
 
     def get_edges(self):
