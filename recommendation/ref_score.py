@@ -16,6 +16,7 @@ def load_obj(name):
 
 
 def build_ref_dict():
+    print 'building'
     ref_df = pd.read_csv(os.path.join(config.base_csv_dir, 'refs.csv'))
     ref_dict = dict()
     for _, row in ref_df.iterrows():
@@ -31,7 +32,6 @@ def load_ref_dict():
         build_ref_dict()
 
     return load_obj('ref_idx')
-
 
 
 def graph_count(ref_idx, paper_id, niter=3):
@@ -50,10 +50,15 @@ def graph_count(ref_idx, paper_id, niter=3):
             except:
                 continue
 
-    return Counter(vertices)
+    retval = dict()
+    vertices_cnt = Counter(vertices)
+    for pid in vertices_cnt:
+        retval[pid] = vertices_cnt[pid]
+    return retval
+
 
 def test():
-    ref_idx = load_obj('ref_idx')
+    ref_dict = load_ref_dict()
     print 'index loading done'
     # paper_df = pd.read_csv(os.path.join(config.base_csv_dir, 'paper.csv'))
     # title_dict = dict()
@@ -62,7 +67,7 @@ def test():
     # print 'paper loading done'
 
     pid = 93258
-    cnt = graph_count(ref_idx, pid, 3)
+    cnt = graph_count(ref_dict, pid, 3)
     print cnt
 
 test()
