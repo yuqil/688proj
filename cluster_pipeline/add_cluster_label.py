@@ -11,7 +11,7 @@ f3 = open("lcc-author-citation-graph-2010-2016_final.graphml", "w")
 for line in f2:
     f3.write(line)
     if '<key id="v_id"' in line:
-        print '<key id="v_cluster" for="node" attr.name="cluster" attr.type="string"/>\n'
+        f3.write('<key id="v_cluster" for="node" attr.name="cluster" attr.type="string"/>\n')
     if '<node id=' in line:
         id = line.split('"')[1]
         cluster = dic[id]

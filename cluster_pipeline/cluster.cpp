@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "unfolding.h"
 
 using namespace std;
 #define MAXN 1000
@@ -123,33 +124,7 @@ vector<int> update(vector<int> &label) {
     return ret;
 }
 
-
-void solve(char *person_file, char *edge_file, int iters) {
-    readPerson(person_file);
-    readEdge(edge_file);
-    
-    fprintf(stderr, "[info] node number %d\n[info] edge number %d\n", n, m);
-
-    // parse edge
-    edge.resize(m, vector<int>()); // adjacent list
-    for(int i = 0; i < m; i ++) {
-        int x = edges[i].first;
-        int y = edges[i].second;
-        edge[x].push_back(y);
-        edge[y].push_back(x);
-    }
-
-    // initialize label
-    vector<int> label(n);
-    for(int i = 0; i < n; i ++) label[i] = i;
-    
-    for(int iter = 0; iter < iters; iter ++) {
-        if(iter % 10 == 0)
-            fprintf(stderr, "[info] iter %d / %d\n", iter, iters);
-        vector<int> new_label = update(label);
-        label = new_label;
-    }
-
+void output(vector<int>& label) {
     // rename cluster id
     map<int, int> p2id;
     for(int i = 0; i < n; i ++) {
@@ -190,37 +165,37 @@ void solve(char *person_file, char *edge_file, int iters) {
     fprintf(stdout, "[info] finished\n");
     fprintf(stdout, "[info] cluster size %d\n", cluster_size);
 
-    if(!open_finder) return ;
+    // output vector of cluster
+    vector<int> C(cluster_size, 0);
+    for(int i = 0; i < n; i ++) {
+        C[label[i]] ++;
+    }
+    sort(C.begin(), C.end());
+    for(int i = 0; i < C.size(); i ++) {
+        printf("%d, ", C[i]);
+    }
+    printf("\n");
+}
 
-    // finder
-    map<string, vector<string>> finder;
-    for(auto i = person.begin(); i != person.end(); i ++) {
-        finder[i->second].push_back(i->first);
+void solve_unfolding(char *person_file, char *edge_file) {
+    readPerson(person_file);
+    readEdge(edge_file);
+
+    map<pr, double> edge;
+    for(int i = 0; i < edges.size(); i ++) {
+        edge[mpr(edges[i].first, edges[i].second)] = 1.0;
     }
-    char buf[MAXN];
-    while(cin.getline(buf, MAXN)) {
-        string name = string(buf);
-        if(finder.find(name) == finder.end()) {
-            fprintf(stdout, "Not Found\n");
-            continue;
-        }
-        auto &v = finder[name];
-        for(int i = 0; i < v.size(); i ++) {
-            string nid = v[i];
-            int id = id2i[nid];
-            fprintf(stdout, "cluster: %d\n", label[id]);
-        }
-    }
+    auto label = fast_unfolding(n, edge);
+    output(label);
 }
 
 
 int main(int argc, char *argv[]) {
-    if(argc < 4) {
-        fprintf(stderr, "Usage: %s [person_file] [edge_file] [iteration] [open finder]\n\n", argv[0]);
+    if(argc != 3) {
+        fprintf(stderr, "Usage: %s [person_file] [edge_file]\n\n", argv[0]);
         return 0;
     }
     srand((unsigned)time(NULL));
-    if(argc > 4) open_finder = atoi(argv[4]);
-    solve(argv[1], argv[2], atoi(argv[3]));
+    solve_unfolding(argv[1], argv[2]);
     return 0;
 }
