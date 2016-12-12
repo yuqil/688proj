@@ -113,6 +113,17 @@ def load_paper_dict():
         save_obj(paper_dict, 'paper_dict')
     return load_obj('paper_dict')
 
+def load_paper_inv_dict():
+    if not os.path.exists('./paper_inv_dict.pkl'):
+        paper_inv_dict = dict()
+        paper_df = pd.read_csv(os.path.join(config.base_csv_dir, 'paper.csv'))
+        for _, row in paper_df.iterrows():
+            pid = int(row['id'])
+            title = row['title']
+            paper_inv_dict[title] = pid
+        save_obj(paper_inv_dict, 'paper_inv_dict')
+    return load_obj('paper_inv_dict')
+
 
 def test():
     bigram_dict = load_bigram_dict()
