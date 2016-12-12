@@ -75,4 +75,4 @@ def test():
     cnt = graph_count(ref_dict, pid, 3)
     print cnt
 
-test()
+# test()

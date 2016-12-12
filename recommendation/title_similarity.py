@@ -125,4 +125,3 @@ def test():
         # title_list.append(title_dict[idx])
         print idx_list[idx], paper_dict[idx]
 
-test()

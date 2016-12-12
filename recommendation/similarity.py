@@ -61,14 +61,17 @@ class abstract_similarity:
                 continue
             if word in counter2:
                 tf = counter2[word]
-            ctf = self.dict[word]
+            if word in self.dict:
+                ctf = self.dict[word]
+            else:
+                ctf = 0.0
             score += (1-self.lam) * ((tf + self.mu * ctf / self.total) / (doclen + self.mu)) + self.lam * (ctf / self.total)
         return score
 
-
-abstract1 = "A novel set of moment invariants based on the Krawtchouk moments are introduced in this paper. These moment invariants are computed over a finite number of image intensity slices, extracted by applying an innovative image representation scheme, the image slice representation (ISR) method. Based on this technique an image is decomposed to a several non-overlapped intensity slices, which can be considered as binary slices of certain intensity. This image representation gives the advantage to accelerate the computation of image's moments since the image can be described in a number of homogenous rectangular blocks, which permits the simplification of the computation formulas. The moments computed over the extracted slices seem to be more efficient than the corresponding moments of the same order that describe the whole image, in recognizing the pattern under processing. The proposed moment invariants are exhaustively tested in several well known computer vision datasets, regarding their rotation, scaling and translation (RST) invariant recognition performance, by resulting to remarkable outcomes."
-
-abstract2 = "A novel set of moment invariants based on the Krawtchouk moments are introduced in this paper. These moment invariants are computed over a finite number of image intensity slices, extracted by applying an innovative image representation scheme, the image slice representation (ISR) method. Based on this technique an image is decomposed to a several non-overlapped intensity slices, which can be considered as binary slices of certain intensity. This image representation gives the advantage to accelerate the computation of image's moments since the image can be described in a number of homogenous rectangular blocks, which permits the simplification of the computation formulas. The moments computed over the extracted slices seem to be more efficient than the corresponding moments of the same order that describe the whole image, in recognizing the pattern under processing. The proposed moment invariants are exhaustively tested in several well known computer vision datasets, regarding their rotation, scaling and translation (RST) invariant recognition performance, by resulting to remarkable outcomes."
-
-simi_eva = abstract_similarity()
-print simi_eva.getScore(abstract1, abstract2)
+#
+# abstract1 = "A novel set of moment invariants based on the Krawtchouk moments are introduced in this paper. These moment invariants are computed over a finite number of image intensity slices, extracted by applying an innovative image representation scheme, the image slice representation (ISR) method. Based on this technique an image is decomposed to a several non-overlapped intensity slices, which can be considered as binary slices of certain intensity. This image representation gives the advantage to accelerate the computation of image's moments since the image can be described in a number of homogenous rectangular blocks, which permits the simplification of the computation formulas. The moments computed over the extracted slices seem to be more efficient than the corresponding moments of the same order that describe the whole image, in recognizing the pattern under processing. The proposed moment invariants are exhaustively tested in several well known computer vision datasets, regarding their rotation, scaling and translation (RST) invariant recognition performance, by resulting to remarkable outcomes."
+#
+# abstract2 = "A novel set of moment invariants based on the Krawtchouk moments are introduced in this paper. These moment invariants are computed over a finite number of image intensity slices, extracted by applying an innovative image representation scheme, the image slice representation (ISR) method. Based on this technique an image is decomposed to a several non-overlapped intensity slices, which can be considered as binary slices of certain intensity. This image representation gives the advantage to accelerate the computation of image's moments since the image can be described in a number of homogenous rectangular blocks, which permits the simplification of the computation formulas. The moments computed over the extracted slices seem to be more efficient than the corresponding moments of the same order that describe the whole image, in recognizing the pattern under processing. The proposed moment invariants are exhaustively tested in several well known computer vision datasets, regarding their rotation, scaling and translation (RST) invariant recognition performance, by resulting to remarkable outcomes."
+#
+# simi_eva = abstract_similarity()
+# print simi_eva.getScore(abstract1, abstract2)
