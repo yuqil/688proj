@@ -1,6 +1,5 @@
 all:
-	python add_name_to_graph.py
-	python get_new_graph_node_and_edge.py
-	g++ -std=c++11 cluster.cpp -o cluster
-	./cluster new_person.txt new_edge.txt 100
-	python add_cluster_label.py
+	$(MAKE) -C citation_cluster all
+	$(MAKE) -C coauthor_cluster all
+	$(MAKE) -C get_top_author all
+	$(MAKE) -C get_top_paper all
