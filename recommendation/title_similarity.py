@@ -38,7 +38,7 @@ def bigram_index(titles):
                 bi = words[i: i + 2]
                 bigram_add(bigram, ' '.join(bi), key)
         except:
-            print 'exception:', key, title
+            # print 'exception:', key, title
             continue
     return bigram
 
@@ -78,8 +78,8 @@ def build_bigram_index():
     for index, row in paper_df.iterrows():
         title_dict[int(row['id'])] = row['title']
 
-    print type(title_dict)
-    print title_dict.keys()[0], title_dict[title_dict.keys()[0]]
+    # print type(title_dict)
+    # print title_dict.keys()[0], title_dict[title_dict.keys()[0]]
 
     bigram_dict = bigram_index(title_dict)
     save_obj(bigram_dict, 'bigram_idx')
